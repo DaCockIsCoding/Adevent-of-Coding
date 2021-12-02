@@ -1,0 +1,30 @@
+with open("day2.txt") as f:
+     data = f.readlines()
+     a = 0
+     c = 0
+     d = 0
+     aim = 0
+     depth = 0
+for line in data:
+    if 'forward' in line:
+       for b in line:
+           if b.isdigit() == True:
+               a = a + int(b)
+               if aim > 0:
+                   depth += aim * int(b)
+               
+    elif 'down' in line:
+       for down in line:
+           if down.isdigit() == True:
+               c = c + int(down)
+               aim += int(down)
+                
+    elif 'up' in line:
+       for up in line:
+           if up.isdigit() == True:
+               d = d + int(up)
+               aim -= int(up)
+
+               
+print (a*(c-d))
+print (depth * a)
